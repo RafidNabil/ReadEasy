@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "22618835724",
+    "project_id": "readeasy-e7030",
+    "storage_bucket": "readeasy-e7030.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22618835724:android:ca3c2479743d4937395729",
+        "android_client_info": {
+          "package_name": "com.example.readeasy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22618835724-7ou3h8k0cihsqtgiqhk1eeceoi5k4a4t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.readeasy",
+            "certificate_hash": "597ce82cc789afb9d8605ee5dcdaaf29c05193c6"
+          }
+        },
+        {
+          "client_id": "22618835724-db7upmpf075jk5lsfek1s12c7tfm8kf6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMON4mIDck7exjU1jbXww2AkZc_qVSDS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "22618835724-db7upmpf075jk5lsfek1s12c7tfm8kf6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
