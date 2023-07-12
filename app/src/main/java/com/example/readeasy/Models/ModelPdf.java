@@ -16,7 +16,7 @@ public class ModelPdf {
         this.description = description;
         this.category = category;
         this.url = url;
-        this.timestamp = timestamp;
+        //this.timestamp = timestamp;
     }
 
     //getter setter

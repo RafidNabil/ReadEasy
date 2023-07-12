@@ -16,9 +16,9 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.profile_page, container, false);
+        View view =  inflater.inflate(R.layout.profile, container, false);
 
-        Button button = view.findViewById(R.id.gotoUpbtn);
+        Button button = view.findViewById(R.id.upBtn);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

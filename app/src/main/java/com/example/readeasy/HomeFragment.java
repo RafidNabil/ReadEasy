@@ -10,11 +10,13 @@ import android.view.ViewGroup;
 
 public class HomeFragment extends Fragment {
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.home_page, container, false);
+        View view = inflater.inflate(R.layout.home_page, container, false);
+
+        return view;
     }
+
 }

@@ -33,14 +33,15 @@
                 android:textSize="24dp"
                 android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <!--<androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcv1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:orientation="horizontal"
-                tools:listitem="@layout/lib_pdf_view" />
+                tools:listitem="@layout/lib_pdf_view" />-->
 
-            <!--<HorizontalScrollView
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="none">
@@ -220,7 +221,7 @@
                 </LinearLayout>
                 >
 
-            </HorizontalScrollView>-->
+            </HorizontalScrollView>
 
             <TextView
                 android:id="@+id/pl"
@@ -233,14 +234,14 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <!--<androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:orientation="horizontal"
-                tools:listitem="@layout/lib_pdf_view" />
+                tools:listitem="@layout/lib_pdf_view" />-->
 
-            <!--<HorizontalScrollView
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="none">
@@ -420,7 +421,7 @@
                 </LinearLayout>
                 >
 
-            </HorizontalScrollView>-->
+            </HorizontalScrollView>
 
             <TextView
                 android:id="@+id/to"
@@ -433,14 +434,14 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <!--<androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:orientation="horizontal"
-                tools:listitem="@layout/lib_pdf_view" />
+                tools:listitem="@layout/lib_pdf_view" />-->
 
-            <!--<HorizontalScrollView
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="none">
@@ -588,7 +589,7 @@
                 </LinearLayout>
                 >
 
-            </HorizontalScrollView>-->
+            </HorizontalScrollView>
         </LinearLayout>
     </ScrollView>
 
