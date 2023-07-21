@@ -8,25 +8,37 @@
     android:orientation="vertical"
     tools:context=".SearchFragment">
 
-    <androidx.cardview.widget.CardView
+    <!--<EditText
+        android:id="@+id/searchBar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="16dp"
-        android:elevation="8dp"
-        app:cardCornerRadius="8dp">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/white"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        android:hint="Search"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColor="@color/neutral1" />-->
 
-
-        <SearchView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </androidx.cardview.widget.CardView>
+    <SearchView
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/white"
+        android:textColor="@color/neutral1"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="Categories"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/neutral1"/>
 
@@ -35,7 +47,7 @@
         android:layout_height="wrap_content">
 
         <HorizontalScrollView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:orientation="horizontal"
@@ -48,71 +60,18 @@
                 android:layout_marginStart="8dp"
                 android:orientation="horizontal">
 
-                <!--<com.google.android.material.chip.Chip
-                    android:id="@+id/chip1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="65dp"
-                    android:text="Custom Chip 1"
-                    android:textColor="@color/primary2"
-                    android:textSize="17dp"
-                    app:chipBackgroundColor="@color/white"
-                    app:chipCornerRadius="8dp"
-                    app:chipStrokeColor="@color/primary2"
-                    app:chipStrokeWidth="2dp"
-                    app:rippleColor="@color/primary5" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="65dp"
-                    android:text="Custom Chip 2"
-                    android:textColor="@color/neutral2"
-                    android:textSize="17dp"
-                    app:chipBackgroundColor="@color/white"
-                    app:chipCornerRadius="8dp"
-                    app:rippleColor="@color/primary5" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="65dp"
-                    android:text="Custom Chip 3"
-                    android:textColor="@color/neutral2"
-                    android:textSize="17dp"
-                    app:chipBackgroundColor="@color/white"
-                    app:chipCornerRadius="8dp"
-                    app:rippleColor="@color/primary5" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="65dp"
-                    android:text="Custom Chip 4"
-                    android:textColor="@color/neutral2"
-                    android:textSize="17dp"
-                    app:chipBackgroundColor="@color/white"
-                    app:chipCornerRadius="8dp"
-                    app:rippleColor="@color/primary5" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="65dp"
-                    android:text="Custom Chip 5"
-                    android:textColor="@color/neutral2"
-                    android:textSize="17dp"
-                    app:chipBackgroundColor="@color/white"
-                    app:chipCornerRadius="8dp"
-                    app:rippleColor="@color/primary5" />-->
             </com.google.android.material.chip.ChipGroup>
         </HorizontalScrollView>
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/SearchPageRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#fafafa"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/pdf_view" />
+        tools:listitem="@layout/lib_pdf_view"
+        android:orientation="vertical" />
 
 
 </LinearLayout>

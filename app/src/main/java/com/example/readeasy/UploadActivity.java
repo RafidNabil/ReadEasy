@@ -43,7 +43,7 @@ public class UploadActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
 
     //Categories arraylist
-    ArrayList<ModelCategory> categoryArrayList;
+    ArrayList<String> categoryTitleArrayList, categoryIdArrayList;
 
     //Progress Dialog
     private ProgressDialog progressDialog;
@@ -95,7 +95,7 @@ public class UploadActivity extends AppCompatActivity {
             }
         });
 
-        uploadPageBinding.attachBtn.setOnClickListener(new View.OnClickListener() {
+        uploadPageBinding.fileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PdfPick();
@@ -164,7 +164,7 @@ public class UploadActivity extends AppCompatActivity {
 
     }
 
-    private String title = "", description="", author="", bookCategory="";
+    private String title = "", description="", author="";
 
     private void validateUploadData() {
         Log.d(TAG, "validateUploadData: Validating data...");
@@ -173,7 +173,7 @@ public class UploadActivity extends AppCompatActivity {
         title = uploadPageBinding.pdfTitle.getText().toString().trim();
         description = uploadPageBinding.pdfDesc.getText().toString().trim();
         author = uploadPageBinding.pdfAuthor.getText().toString().trim();
-        bookCategory = uploadPageBinding.pdfCategory.getText().toString().trim();
+
 
         //validate
         if(TextUtils.isEmpty(title)){
@@ -185,7 +185,7 @@ public class UploadActivity extends AppCompatActivity {
         else if(TextUtils.isEmpty(author)) {
             Toast.makeText(this, "Enter Author...", Toast.LENGTH_SHORT).show();
         }
-        else if(TextUtils.isEmpty(bookCategory)) {
+        else if(TextUtils.isEmpty(selectedCategoryTitle)) {
             Toast.makeText(this, "Pick Category...", Toast.LENGTH_SHORT).show();
         }
         else if(pdfUri == null){
@@ -198,21 +198,25 @@ public class UploadActivity extends AppCompatActivity {
 
     private void loadPdfCategories() {
         Log.d(TAG, "loadPdfCategories: Loading pdf categories...");
-        categoryArrayList = new ArrayList<>();
+        categoryTitleArrayList = new ArrayList<>();
+        categoryIdArrayList = new ArrayList<>();
 
         //db
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                categoryArrayList.clear();
+                categoryTitleArrayList.clear();
+                categoryIdArrayList.clear();
                 for(DataSnapshot ds: snapshot.getChildren()){
-                    //get data
-                    ModelCategory model = ds.getValue(ModelCategory.class);
 
-                    //add to categoryArrayList
-                    categoryArrayList.add(model);
-                    Log.d(TAG, "onDataChange: "+model.getCategory());
+                    //get id and title of category
+                    String categoryId = ""+ds.child("id").getValue();
+                    String categoryTitle = ""+ds.child("category").getValue();
+
+                    //add to arraylist
+                    categoryTitleArrayList.add(categoryTitle);
+                    categoryIdArrayList.add(categoryId);
                 }
 
             }
@@ -224,13 +228,15 @@ public class UploadActivity extends AppCompatActivity {
         });
     }
 
+    //selected category id and title
+    private String selectedCategoryId, selectedCategoryTitle;
     private void categoryPickDialog() {
         Log.d(TAG, "categoryPickDialog: showing category pick dialog");
 
-        String[] categoriesArray = new String[categoryArrayList.size()];
+        String[] categoriesArray = new String[categoryTitleArrayList.size()];
 
-        for(int i=0; i<categoryArrayList.size(); i++)
-            categoriesArray[i] = categoryArrayList.get(i).getCategory();
+        for(int i = 0; i< categoryTitleArrayList.size(); i++)
+            categoriesArray[i] = categoryTitleArrayList.get(i);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Pick Category")
@@ -238,10 +244,11 @@ public class UploadActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        String category = categoriesArray[which];
-                        uploadPageBinding.pdfCategory.setText(category);
+                        selectedCategoryTitle = categoryTitleArrayList.get(which);
+                        selectedCategoryId = categoryIdArrayList.get(which);
+                        uploadPageBinding.pdfCategory.setText(selectedCategoryTitle);
 
-                        Log.d(TAG, "onClick: Selected category:"+category);
+                        Log.d(TAG, "onClick: Selected category:"+selectedCategoryId+" "+selectedCategoryTitle);
                     }
                 }).show();
     }
@@ -299,7 +306,7 @@ public class UploadActivity extends AppCompatActivity {
         hashMap.put("title", ""+title);
         hashMap.put("author", ""+author);
         hashMap.put("description", ""+description);
-        hashMap.put("category", ""+bookCategory);
+        hashMap.put("categoryId", ""+selectedCategoryId);
         hashMap.put("url", ""+uploadedPdfUrl);
         hashMap.put("timestamp", ""+timestamp);
 

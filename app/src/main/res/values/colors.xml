@@ -3,10 +3,10 @@
     <color name="purple_200">#C68E17</color><!--#FFBB86FC-->
     <color name="purple_500">#C68E17</color><!--#FF6200EE-->
     <color name="purple_700">#C68E17</color><!--#FF3700B3-->
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="teal_200">#D7B15E</color><!--#FF03DAC5-->
+    <color name="teal_700">#FF018786</color><!--#FF018786-->
+    <color name="black">#FF000000</color><!--#FF000000-->
+    <color name="white">#FFFFFFFF</color><!--#FFFFFFFF-->
 
     <color name="primary1">#C68E17</color>
     <color name="primary2">#D2A546</color>

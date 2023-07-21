@@ -2,24 +2,22 @@ package com.example.readeasy.Models;
 
 public class ModelPdf {
 
-    String uid, id, title, author, description, category, url;
-    long timestamp;
+    String uid, id, title, author, description, categoryId, url;
+    String timestamp;
 
     public ModelPdf() {
     }
 
-    public ModelPdf(String uid, String id, String title, String author, String description, String category, String url, long timestamp) {
+    public ModelPdf(String uid, String id, String title, String author, String description, String categoryId, String url, String timestamp) {
         this.uid = uid;
         this.id = id;
         this.title = title;
         this.author = author;
         this.description = description;
-        this.category = category;
+        this.categoryId = categoryId;
         this.url = url;
-        //this.timestamp = timestamp;
+        this.timestamp = timestamp;
     }
-
-    //getter setter
 
     public String getUid() {
         return uid;
@@ -61,12 +59,12 @@ public class ModelPdf {
         this.description = description;
     }
 
-    public String getCategory() {
-        return category;
+    public String getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getUrl() {
@@ -77,11 +75,11 @@ public class ModelPdf {
         this.url = url;
     }
 
-    public long getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(long timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 }
