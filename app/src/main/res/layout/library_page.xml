@@ -389,7 +389,7 @@
                 android:layout_height="0dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/lib_pdf_view" />
+                tools:listitem="@layout/search_results" />
 
             <HorizontalScrollView
                 android:layout_width="match_parent"

@@ -16,7 +16,8 @@
         app:layout_constraintBottom_toTopOf="@+id/pdfTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/divider" />
+        app:layout_constraintTop_toTopOf="@+id/divider"
+        app:layout_constraintVertical_bias="0.25" />
 
     <EditText
         android:id="@+id/categoryInput"
@@ -67,26 +68,45 @@
         app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:layout_constraintVertical_bias="0.605" />
+        app:layout_constraintVertical_bias="0.358" />
+
+    <TextView
+        android:id="@+id/pdfCover"
+        android:layout_width="370dp"
+        android:layout_height="55dp"
+        android:background="#fafafa"
+        android:gravity="center_vertical"
+        android:hint="Cover"
+        android:padding="10dp"
+        android:textColor="@color/neutral1"
+        android:textColorHint="@color/neutral4"
+        android:textSize="18dp"
+        android:drawableEnd="@drawable/ic_baseline_attach_file_24"
+        app:layout_constraintBottom_toTopOf="@+id/pdfAuthor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:layout_constraintVertical_bias="0.688" />
 
     <TextView
         android:id="@+id/pdfCategory"
         android:layout_width="370dp"
         android:layout_height="55dp"
-        android:padding="10dp"
-        android:hint="Category"
+        android:background="#fafafa"
         android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-        android:textSize="18dp"
+        android:gravity="center_vertical"
+        android:hint="Category"
+        android:padding="10dp"
         android:textColor="@color/neutral1"
         android:textColorHint="@color/neutral4"
-        android:gravity="center_vertical"
-        android:background="#fafafa"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.533" />
 
     <EditText
         android:id="@+id/pdfAuthor"
@@ -100,7 +120,7 @@
         app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/divider"
-        app:layout_constraintVertical_bias="0.919" />
+        app:layout_constraintVertical_bias="0.961" />
 
     <EditText
         android:id="@+id/pdfDesc"
@@ -113,7 +133,7 @@
         app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/divider"
-        app:layout_constraintVertical_bias="0.79" />
+        app:layout_constraintVertical_bias="0.836" />
 
     <Button
         android:id="@+id/fileBtn"

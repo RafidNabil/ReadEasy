@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -18,15 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.readeasy.Filters.PdfFilter;
 import com.example.readeasy.Models.ModelPdf;
 import com.example.readeasy.R;
-import com.example.readeasy.databinding.LibPdfViewBinding;
-import com.github.barteksc.pdfviewer.PDFView;
-import com.github.barteksc.pdfviewer.listener.OnErrorListener;
-import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
-import com.github.barteksc.pdfviewer.listener.OnPageErrorListener;
+import com.example.readeasy.databinding.SearchResultsBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -35,7 +33,7 @@ public class SearchPdfAdapter extends RecyclerView.Adapter<SearchPdfAdapter.Sear
     private Context context;
     public ArrayList<ModelPdf> pdfArrayList, filterList;
 
-    private LibPdfViewBinding binding;
+    private SearchResultsBinding binding;
 
     private PdfFilter filter;
 
@@ -52,7 +50,7 @@ public class SearchPdfAdapter extends RecyclerView.Adapter<SearchPdfAdapter.Sear
     public SearchPdfHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         /*binding = LibPdfViewBinding.inflate(LayoutInflater.from(context), parent, false);
         return new SearchPdfHolder(binding.getRoot());*/
-        View view = LayoutInflater.from(context).inflate(R.layout.lib_pdf_view, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.search_results, parent, false);
         return new SearchPdfHolder(view);
     }
 
@@ -72,16 +70,19 @@ public class SearchPdfAdapter extends RecyclerView.Adapter<SearchPdfAdapter.Sear
 
     private void loadPdfFromUrl(ModelPdf model, SearchPdfHolder holder) {
 
-        String pdfUrl = model.getUrl();
-        StorageReference ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl);
+        //String pdfUrl = model.getUrl();
+        String coverUrl = model.getCoverUrl();
+        StorageReference ref = FirebaseStorage.getInstance().getReferenceFromUrl(coverUrl);
         ref.getBytes(MAX_BYTES_PDF)
                 .addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override
                     public void onSuccess(byte[] bytes) {
                         Log.d(TAG, "onSuccess: " + model.getTitle() + "Successfully got the file");
 
+                        Picasso.get().load(coverUrl).into(holder.imageView);
+
                         //set pdfview
-                        holder.pdfview.fromBytes(bytes)
+                        /*holder.pdfview.fromBytes(bytes)
                                 .pages(0)
                                 .spacing(0)
                                 .swipeHorizontal(false)
@@ -107,7 +108,7 @@ public class SearchPdfAdapter extends RecyclerView.Adapter<SearchPdfAdapter.Sear
                                         Log.d(TAG, "loadComplete: pdf loaded");
                                     }
                                 })
-                                .load();
+                                .load();*/
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -135,7 +136,7 @@ public class SearchPdfAdapter extends RecyclerView.Adapter<SearchPdfAdapter.Sear
 
     class SearchPdfHolder extends RecyclerView.ViewHolder {
 
-        PDFView pdfview;
+        ImageView imageView;
         ProgressBar progressbar;
         TextView searchTitle;
         TextView searchAuthor;
@@ -147,8 +148,8 @@ public class SearchPdfAdapter extends RecyclerView.Adapter<SearchPdfAdapter.Sear
             progressbar = binding.progressbar;
             searchTitle = binding.searchTitle;
             searchAuthor = binding.searchAuthor;*/
-            pdfview = itemView.findViewById(R.id.pdfview);
-            progressbar = itemView.findViewById(R.id.progressbar);
+            imageView = itemView.findViewById(R.id.searchCover);
+            //progressbar = itemView.findViewById(R.id.progressbar);
             searchTitle = itemView.findViewById(R.id.searchTitle);
             searchAuthor = itemView.findViewById(R.id.searchAuthor);
         }

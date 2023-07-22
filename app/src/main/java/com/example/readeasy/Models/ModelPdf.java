@@ -2,13 +2,13 @@ package com.example.readeasy.Models;
 
 public class ModelPdf {
 
-    String uid, id, title, author, description, categoryId, url;
+    String uid, id, title, author, description, categoryId, url, coverUrl;
     String timestamp;
 
     public ModelPdf() {
     }
 
-    public ModelPdf(String uid, String id, String title, String author, String description, String categoryId, String url, String timestamp) {
+    public ModelPdf(String uid, String id, String title, String author, String description, String categoryId, String url, String coverUrl, String timestamp) {
         this.uid = uid;
         this.id = id;
         this.title = title;
@@ -16,6 +16,7 @@ public class ModelPdf {
         this.description = description;
         this.categoryId = categoryId;
         this.url = url;
+        this.coverUrl = coverUrl;
         this.timestamp = timestamp;
     }
 
@@ -73,6 +74,14 @@ public class ModelPdf {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getCoverUrl() {
+        return coverUrl;
+    }
+
+    public void setCoverUrl(String coverUrl) {
+        this.coverUrl = coverUrl;
     }
 
     public String getTimestamp() {
