@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafafa"
+    tools:context=".IntroActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:srcCompat="@drawable/ic_login_svg"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"
+        app:cardBackgroundColor="#ffffff"
+        app:cardCornerRadius="30dp"
+        app:cardMaxElevation="20dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:paddingLeft="10dp"
+            android:text="Welcome to ReadEasy"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:paddingLeft="32dp"
+            android:paddingRight="20dp"
+            android:text="Explore the world of books: Discover your next favourite book in our reading app"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/signUpBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="140dp"
+                android:background="@drawable/button_background"
+                android:text="Sign up"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="16dp"
+                app:backgroundTint="@color/primary1"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
+
+            <Button
+                android:id="@+id/logInBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="210dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/button_bg_2"
+                android:text="Log in"
+                android:textAllCaps="false"
+                android:textColor="@color/primary1"
+                android:textSize="16dp"
+                app:backgroundTint="@color/primary4" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        app:cardBackgroundColor="#ffffff"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

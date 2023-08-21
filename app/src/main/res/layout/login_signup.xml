@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fafafa"
+    tools:context=".LoginSignUpActivity">
+
+    <TextView
+        android:id="@+id/loginTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:text="Log in"
+        android:textColor="@color/neutral1"
+        android:textSize="28dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/msgTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:text="It's great to see you again. Please login to continue"
+        android:textColor="@color/neutral4"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/nameTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:text="User Name"
+        android:textColor="@color/neutral1"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/nameET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:minHeight="48dp"
+        android:background="@drawable/edit_text_bg"
+        android:padding="10dp"
+        android:textColor="@color/neutral1"
+        android:elevation="4dp"
+        android:inputType="text"
+        android:maxLines="1"/>
+
+    <TextView
+        android:id="@+id/emailTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:text="Email Address"
+        android:textColor="@color/neutral1"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/emailET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:minHeight="48dp"
+        android:background="@drawable/edit_text_bg"
+        android:padding="10dp"
+        android:textColor="@color/neutral1"
+        android:elevation="4dp"
+        android:inputType="text"
+        android:maxLines="1"/>
+
+    <TextView
+        android:id="@+id/passwordTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:text="Password"
+        android:textColor="@color/neutral1"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/passwordET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:minHeight="48dp"
+        android:background="@drawable/edit_text_bg"
+        android:padding="10dp"
+        android:textColor="@color/neutral1"
+        android:elevation="4dp"
+        android:inputType="text"
+        android:maxLines="1"/>
+
+    <Button
+        android:id="@+id/continueBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="Continue"
+        android:background="@drawable/button_background"
+        />
+</LinearLayout>
