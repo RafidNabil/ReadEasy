@@ -3,6 +3,15 @@
     package="com.example.readeasy">
     <!-- Required Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <queries>
+        <package android:name="com.google.android.apps.books" />
+        <package android:name="com.example.app" />
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -11,6 +20,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReadEasy">
+        <activity
+            android:name=".ReadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BookDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginSignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IntroActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".UploadActivity"
             android:exported="false" />

@@ -28,29 +28,29 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class TopAdapter extends RecyclerView.Adapter<TopAdapter.TopHolder> {
+public class MidAdapter extends RecyclerView.Adapter<MidAdapter.MidHolder>{
 
     private Context context;
     public ArrayList<ModelPdf> list;
 
     private PdfTilesBinding binding;
 
-    private static final String TAG = "TOP_ADAPTER";
+    private static final String TAG = "Mid_ADAPTER";
 
-    public TopAdapter(Context context, ArrayList<ModelPdf> list) {
+    public MidAdapter(Context context, ArrayList<ModelPdf> list) {
         this.context = context;
         this.list = list;
     }
 
     @NonNull
     @Override
-    public TopAdapter.TopHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MidAdapter.MidHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.pdf_tiles, parent, false);
-        return new TopAdapter.TopHolder(view);
+        return new MidAdapter.MidHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TopHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MidAdapter.MidHolder holder, int position) {
         ModelPdf model = list.get(position);
 
         String title = model.getTitle();
@@ -62,7 +62,7 @@ public class TopAdapter extends RecyclerView.Adapter<TopAdapter.TopHolder> {
         setImg(model, holder);
     }
 
-    private void setImg(ModelPdf model, TopAdapter.TopHolder holder) {
+    private void setImg(ModelPdf model, MidAdapter.MidHolder holder) {
 
         String coverUrl = model.getCoverUrl();
 
@@ -90,16 +90,16 @@ public class TopAdapter extends RecyclerView.Adapter<TopAdapter.TopHolder> {
         return list.size();
     }
 
-    class TopHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class MidHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView imageView;
         TextView title;
         TextView author;
 
-        public TopHolder(@NonNull View itemView) {
+        public MidHolder(@NonNull View itemView) {
             super(itemView);
 
-           /* imageView = binding.bookCover;
+            /* imageView = binding.bookCover;
             title = binding.bookTitle;
             author = binding.bookAuthor;*/
             imageView = itemView.findViewById(R.id.bookCover);
@@ -129,3 +129,5 @@ public class TopAdapter extends RecyclerView.Adapter<TopAdapter.TopHolder> {
         }
     }
 }
+
+

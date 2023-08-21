@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#fafafa">
+    android:background="#fafafa"
+    tools:context=".LoginSignUpActivity">
 
     <TextView
         android:id="@+id/loginTV"
@@ -19,7 +21,7 @@
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/loginTv2"
+        android:id="@+id/msgTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
@@ -31,20 +33,20 @@
         android:textSize="18dp" />
 
     <TextView
-        android:id="@+id/loginTv3"
+        android:id="@+id/nameTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:text="Email Address"
+        android:text="User Name"
         android:textColor="@color/neutral1"
         android:textSize="16dp"
         android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/loginET1"
+        android:id="@+id/nameET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
@@ -55,10 +57,41 @@
         android:background="@drawable/edit_text_bg"
         android:padding="10dp"
         android:textColor="@color/neutral1"
-        android:elevation="4dp"/>
+        android:elevation="4dp"
+        android:inputType="text"
+        android:maxLines="1"/>
 
     <TextView
-        android:id="@+id/loginTv4"
+        android:id="@+id/emailTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:text="Email Address"
+        android:textColor="@color/neutral1"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/emailET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:minHeight="48dp"
+        android:background="@drawable/edit_text_bg"
+        android:padding="10dp"
+        android:textColor="@color/neutral1"
+        android:elevation="4dp"
+        android:inputType="text"
+        android:maxLines="1"/>
+
+    <TextView
+        android:id="@+id/passwordTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
@@ -71,7 +104,7 @@
         android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/loginET2"
+        android:id="@+id/passwordET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -80,16 +113,18 @@
         android:background="@drawable/edit_text_bg"
         android:padding="10dp"
         android:textColor="@color/neutral1"
-        android:elevation="4dp"/>
+        android:elevation="4dp"
+        android:inputType="text"
+        android:maxLines="1"/>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/continueBtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="0dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:text="Continue"
         android:background="@drawable/button_background"
         />

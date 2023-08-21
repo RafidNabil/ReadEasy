@@ -31,6 +31,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {
@@ -41,7 +42,7 @@ dependencies {
     implementation 'com.caverock:androidsvg:1.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    testImplementation 'junit:junit:4.+'
+    testImplementation 'junit:junit:'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
@@ -52,12 +53,23 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:20.0.0'
 
     //pdf View
-    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    //implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
+
+    //PDF page count
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.15.1'
 
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.8'
+
+    //img blurr
+    implementation 'jp.wasabeef:blurry:2.1.1'
+
+    implementation 'com.android.volley:volley:1.2.1'
+
+
+
 
 }

@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.readeasy.Adapters.SearchPdfAdapter;
@@ -30,6 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class SearchFragment extends Fragment {
 
@@ -57,12 +59,26 @@ public class SearchFragment extends Fragment {
         binding = SearchPageBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        categoryId = "1689016539929";
-        categoryTitle = "Popular Science";
+        //categoryId = "1689016539929";
+        //categoryTitle = "Popular Science";
 
         //loadPdfList();
 
         loadCategories();
+
+        binding.searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Toast.makeText(requireContext(), binding.searchBar.getQuery().toString().trim(), Toast.LENGTH_SHORT).show();
+                searchQ(binding.searchBar.getQuery().toString().trim());
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
 
         //searchPdfAdapter = new SearchPdfAdapter(requireContext(), pdfArrayList);
         //binding.SearchPageRecyclerView.setAdapter(searchPdfAdapter);
@@ -92,12 +108,12 @@ public class SearchFragment extends Fragment {
         return view;
     }
 
-    private void loadPdfList() {
+    private void loadPdfList(String ctgr) {
 
         pdfArrayList = new ArrayList<>();
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Books");
-        ref.orderByChild("categoryId").equalTo(categoryId)
+        ref.orderByChild("categoryId").equalTo(ctgr)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -107,6 +123,35 @@ public class SearchFragment extends Fragment {
                             pdfArrayList.add(model);
 
                             Log.d(TAG, "onDataChange: "+model.getId()+" "+model.getTitle());
+                        }
+                        searchPdfAdapter = new SearchPdfAdapter(requireContext(), pdfArrayList);
+                        binding.SearchPageRecyclerView.setAdapter(searchPdfAdapter);
+
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+    }
+
+    private void searchQ(String bookTitle) {
+
+        pdfArrayList = new ArrayList<>();
+        pdfArrayList.clear();
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Books");
+        ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        pdfArrayList.clear();
+                        for(DataSnapshot ds: snapshot.getChildren()){
+                            ModelPdf model = ds.getValue(ModelPdf.class);
+                            if(model.getTitle().toLowerCase().equals(bookTitle.toLowerCase())){
+                                pdfArrayList.add(model);
+                                Log.d(TAG, "onDataChange: "+model.getId()+" "+model.getTitle());
+                            }
+
                         }
                         searchPdfAdapter = new SearchPdfAdapter(requireContext(), pdfArrayList);
                         binding.SearchPageRecyclerView.setAdapter(searchPdfAdapter);
@@ -143,7 +188,6 @@ public class SearchFragment extends Fragment {
 
                     Chip chip = new Chip(requireContext());
                     chip.setId(View.generateViewId());
-                    //chip.setId(i);
                     chip.setChipMinHeight(Height);
                     chip.setText(model.getCategory());
                     chip.setTextColor(ContextCompat.getColor(requireContext(), R.color.neutral2));
@@ -154,6 +198,8 @@ public class SearchFragment extends Fragment {
                     chip.setElevation(getResources().getDimension(R.dimen.ELEVATION));
                     chip.setCheckable(true);
                     chip.setCheckedIcon(null);
+                    chip.setAccessibilityClassName(model.getId());
+
 
 
                     // Add the Chip to the ChipGroup
@@ -165,24 +211,26 @@ public class SearchFragment extends Fragment {
                             if (isChecked) {
                                 chip.setChipStrokeWidth(getResources().getDimension(R.dimen.chip_stroke_width));
                                 chip.setChipStrokeColor(ColorStateList.valueOf(getResources().getColor((R.color.primary1))));
+                                loadPdfList(chip.getAccessibilityClassName().toString());
                             } else {
                                 chip.setChipStrokeWidth(0);
+                                pdfArrayList.clear();
+                                searchPdfAdapter.notifyDataSetChanged();
                                 //chip.setChipStrokeColor(ColorStateList.valueOf(getResources().getColor((R.color.primary1))));
                             }
                         }
                     });
 
 
-                    if(chip.getText().equals("Popular Science"))
-                    {
+
                         chip.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 //Toast.makeText(getContext(), "Checked", Toast.LENGTH_SHORT).show();
-                                loadPdfList();
+
                             }
                         });
-                    }
+
 
                 }
             }

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Toast;
 
 
@@ -62,6 +63,8 @@ public class UploadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.upload_page);
         uploadPageBinding = UploadPageBinding.inflate(getLayoutInflater());
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
         setContentView(uploadPageBinding.getRoot());
 
         uploadPageBinding.backButton.setOnClickListener(new View.OnClickListener() {
@@ -382,7 +385,7 @@ public class UploadActivity extends AppCompatActivity {
     private void PdfPick() {
         Log.d(TAG, "PdfPick: starting pdf pick intent");
         Intent intent = new Intent();
-        intent.setType("application/epub+zip");
+        intent.setType("application/pdf");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select PDF"), PDF_PICK_CODE);
     }

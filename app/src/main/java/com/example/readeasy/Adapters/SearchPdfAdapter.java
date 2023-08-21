@@ -3,6 +3,7 @@ package com.example.readeasy.Adapters;
 import static com.example.readeasy.Constants.MAX_BYTES_PDF;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +13,15 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.readeasy.BookDetailsActivity;
 import com.example.readeasy.Filters.PdfFilter;
+import com.example.readeasy.IntroActivity;
+import com.example.readeasy.LoginSignUpActivity;
 import com.example.readeasy.Models.ModelPdf;
 import com.example.readeasy.R;
 import com.example.readeasy.databinding.SearchResultsBinding;
@@ -134,7 +139,7 @@ public class SearchPdfAdapter extends RecyclerView.Adapter<SearchPdfAdapter.Sear
         return filter;
     }
 
-    class SearchPdfHolder extends RecyclerView.ViewHolder {
+    class SearchPdfHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView imageView;
         ProgressBar progressbar;
@@ -152,6 +157,27 @@ public class SearchPdfAdapter extends RecyclerView.Adapter<SearchPdfAdapter.Sear
             //progressbar = itemView.findViewById(R.id.progressbar);
             searchTitle = itemView.findViewById(R.id.searchTitle);
             searchAuthor = itemView.findViewById(R.id.searchAuthor);
+
+            imageView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            if (position != RecyclerView.NO_POSITION) {
+                ModelPdf clickedItem = pdfArrayList.get(position);
+
+                // Perform the action you want when an item is clicked
+                // For example, you can open a new activity and pass data
+
+                Intent intent = new Intent(context, BookDetailsActivity.class);
+                // Pass data using extras
+                intent.putExtra("pdfTitle", clickedItem.getTitle());
+                intent.putExtra("pdfAuthor", clickedItem.getAuthor());
+                // Add more data as needed
+
+                context.startActivity(intent);
+            }
         }
     }
 }
